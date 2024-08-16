@@ -2,6 +2,7 @@
 #include <dict_BST.h>
 #include <entry.h>
 #include <queue_s.h>
+#include <stack_d.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -51,7 +52,16 @@ char search(dict_bst* dict, int key){
   return '\0';
 }
 
-void DFS(dict_bst* dict,int node_index){
+void DFSRecursive(dict_bst* dict, int node_index){
+  if(node_index == 0) return;
+    if(dict->tree->data[node_index].key != 0)
+      printf("'%c', ",dict->tree->data[node_index].data);
+    DFSRecursive(dict,sx(dict->tree, node_index));
+    DFSRecursive(dict,dx(dict->tree, node_index));
+}
+
+
+void BFS(dict_bst* dict,int node_index){
   queue_s* queue = create_queue_s();
   enqueque_queue_s(queue,node_index);
   while (!is_empty_queue_s(queue)) {
@@ -59,8 +69,22 @@ void DFS(dict_bst* dict,int node_index){
     if(u != 0){
       if(dict->tree->data[u].key != 0)
         printf("'%c', ",dict->tree->data[u].data);
-      DFS(dict,sx(dict->tree, u));
-      DFS(dict,dx(dict->tree, u));
+      enqueque_queue_s(queue,sx(dict->tree, u));
+      enqueque_queue_s(queue,dx(dict->tree, u));
+    }
+  }
+}
+
+void DFS(dict_bst* dict, int node_index){
+  stack_d* stack = create_stack_d();
+  push_stack_d(stack,node_index);
+  while (!is_empty_stack_d(stack)) {
+    int u = pop_stack_d(stack);
+    if(u != 0){
+      if(dict->tree->data[u].key != 0)
+        printf("'%c', ",dict->tree->data[u].data);
+      push_stack_d(stack,dx(dict->tree, u));
+      push_stack_d(stack,sx(dict->tree, u));
     }
   }
 }

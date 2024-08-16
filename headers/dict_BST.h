@@ -12,6 +12,8 @@ dict_bst* create_dict();
 void insert(dict_bst* dict, entry entry);
 void delete(dict_bst* dict, char elem);
 char search(dict_bst* dict, int key);
+void DFSRecursive(dict_bst* dict,int node_index);
 void DFS(dict_bst* dict,int node_index);
+void BFS(dict_bst* dict,int node_index);
 
 #endif
