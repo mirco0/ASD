@@ -52,10 +52,10 @@ char search(dict_bst* dict, int key){
 }
 
 void DFS(dict_bst* dict,int node_index){
-  queue_s* queue = create_queue();
-  enqueque(queue,node_index);
-  while (!is_empty(queue)) {
-    int u = dequeque(queue);
+  queue_s* queue = create_queue_s();
+  enqueque_queue_s(queue,node_index);
+  while (!is_empty_queue_s(queue)) {
+    int u = dequeque_queue_s(queue);
     if(u != 0){
       if(dict->tree->data[u].key != 0)
         printf("'%c', ",dict->tree->data[u].data);

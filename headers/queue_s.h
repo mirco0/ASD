@@ -9,9 +9,9 @@ typedef struct queue_s {
   int put_pointer;
 } queue_s; 
 
-queue_s* create_queue();
-int enqueque(queue_s* queue, int value);
-int dequeque(queue_s* queue);
-int is_empty(queue_s* queue);
+queue_s* create_queue_s();
+int enqueque_queue_s(queue_s* queue, int value);
+int dequeque_queue_s(queue_s* queue);
+int is_empty_queue_s(queue_s* queue);
 
 #endif
