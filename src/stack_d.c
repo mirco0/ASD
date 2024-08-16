@@ -1,7 +1,7 @@
 #include <stack_d.h>
 #include <stdlib.h>
 
-stack_d* create_stack(){
+stack_d* create_stack_d(){
     stack_d* stack = malloc(sizeof(stack_d));
     stack->first = 0;
 }

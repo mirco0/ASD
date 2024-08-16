@@ -1,4 +1,4 @@
-#include "queue_s.h"
+#include <queue_s.h>
 #include <stdlib.h>
 
 queue_s* create_queue_s(){
